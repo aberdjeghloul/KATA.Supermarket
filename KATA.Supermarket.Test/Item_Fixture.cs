@@ -37,7 +37,7 @@ namespace KATA.Supermarket.Test
             IItem canOfBeans2 = cansFactory.GetProduct("beans");            
             Assert.IsFalse(canOfBeans1.GetItemNumber() == canOfBeans2.GetItemNumber());
         }
-
+        
         [TestMethod]
         public void Cart_with_items_into_it_have_A_Total_Price()
         {
