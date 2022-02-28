@@ -9,11 +9,11 @@ namespace KATA.Supermarket
     /// </summary>
     public abstract class ItemFactory
     {
-        protected abstract IItem CreateProduct();
+        protected abstract IItem CreateProduct(string productName);
 
-        public IItem GetProduct()
+        public IItem GetProduct(string productName)
         {
-            return this.CreateProduct();
+            return this.CreateProduct(productName);
         }
     }
 }

@@ -9,11 +9,17 @@ namespace KATA.Supermarket
     /// </summary>
     public class CansFactory : ItemFactory
     {
-        protected override IItem CreateProduct()
+        protected override IItem CreateProduct(string productName)
         {
-            IItem canOfBeans = new Cans("beans");
-            canOfBeans.SetPrice(0.65m);
-            return canOfBeans;
+            IItem canOfProducts = new Cans(productName);
+
+            //Mock service to give price of each product
+            if (productName == "beans")
+                canOfProducts.SetPrice(0.65m);
+            if (productName == "corns")
+                canOfProducts.SetPrice(0.85m);
+            
+            return canOfProducts;
         }
     }
 }
