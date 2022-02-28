@@ -28,3 +28,5 @@ Ex: Cans of beans 0.65€, Cans of corns 0.85€
 
 Also I'm using Composite pattern because a cart is composed with multiple items
 Ex: 1 Can of beans 0.65€ + 1 Can of corns 0.85€ then my cart is 1.5€
+
+Add discount strategy. 3 for 1 € so if I take 4 or 5 then what will be the new price?
