@@ -16,3 +16,10 @@ Using Visual Studio 2019. The solution KATA.Supermarket includes two projects:
 - KATA.Supermarket: Class Library (.NET Core) 
 
 The approach is to write simple test case first then using the refactor menu item "Generate new method..." to generate the item class into the library project
+
+Use cases:
+1) Items should have a name associated to it
+2) Items should have a unique item number
+3) Items should have a price
+
+I'm using Factory pattern to build an item which it has a name,  a price and a unique id
