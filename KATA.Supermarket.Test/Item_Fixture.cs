@@ -8,16 +8,26 @@ namespace KATA.Supermarket.Test
         [TestMethod]
         public void Items_should_have_a_name_associated_to_it()
         {
-            Item item = new Item("can of beans");
-            Assert.AreEqual<string>(item.GetName(), "can of beans");
+            CansFactory cansFactory = new CansFactory();
+            IItem canOfBeans = cansFactory.GetProduct();
+            Assert.AreEqual<string>(canOfBeans.GetName(), "can of beans");            
+        }
+
+        [TestMethod]
+        public void Items_should_have_a_price()
+        {
+            CansFactory cansFactory = new CansFactory();
+            IItem canOfBeans = cansFactory.GetProduct();
+            Assert.AreEqual<decimal>(canOfBeans.GetPrice(), 0.65m);
         }
 
         [TestMethod]
         public void Items_should_have_a_unique_itemnumber()
         {
-            Item item1 = new Item("can of beans");
-            Item item2 = new Item("can of beans");
-            Assert.IsFalse(item1.GetItemNumber() == item2.GetItemNumber());
+            CansFactory cansFactory = new CansFactory();
+            IItem canOfBeans1 = cansFactory.GetProduct();
+            IItem canOfBeans2 = cansFactory.GetProduct();            
+            Assert.IsFalse(canOfBeans1.GetItemNumber() == canOfBeans2.GetItemNumber());
         }
     }
 }
