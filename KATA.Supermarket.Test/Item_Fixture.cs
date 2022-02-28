@@ -49,5 +49,23 @@ namespace KATA.Supermarket.Test
             cart.AddItem(canOfCorns);
             Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.5m);
         }
+
+        [TestMethod]
+        public void Discount_items_with_4()
+        {
+            CansFactory cansFactory = new CansFactory();
+            IItem canOfBeans = cansFactory.GetProduct("beans");
+            Discount discount = new Discount(canOfBeans, 3, 1);
+            Assert.AreEqual<decimal>(discount.GetDiscountPrice(4), 1.33m);
+        }
+
+        [TestMethod]
+        public void Discount_items_with_5()
+        {
+            CansFactory cansFactory = new CansFactory();
+            IItem canOfBeans = cansFactory.GetProduct("beans");
+            Discount discount = new Discount(canOfBeans, 3, 1);
+            Assert.AreEqual<decimal>(discount.GetDiscountPrice(5), 1.67m);
+        }
     }
 }
