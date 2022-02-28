@@ -23,3 +23,4 @@ Use cases:
 3) Items should have a price
 
 I'm using Factory pattern to build an item which it has a name,  a price and a unique id
+Then now I'm using Factory Pattern to build cans of something in my Grocery and then refactor library and test projects
