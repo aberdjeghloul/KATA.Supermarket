@@ -24,3 +24,7 @@ Use cases:
 
 I'm using Factory pattern to build an item which it has a name,  a price and a unique id
 Then now I'm using Factory Pattern to build cans of something in my Grocery and then refactor library and test projects
+Ex: Cans of beans 0.65€, Cans of corns 0.85€
+
+Also I'm using Composite pattern because a cart is composed with multiple items
+Ex: 1 Can of beans 0.65€ + 1 Can of corns 0.85€ then my cart is 1.5€
