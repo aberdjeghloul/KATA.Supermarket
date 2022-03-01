@@ -37,6 +37,6 @@ Special Discount today 3 cans of beans for only 1 €. So if I take 4 or 5 then 
 - Then 5 items will cost 1 € + (2/3) * 1 € => 1,67€ 
 - Then 2 items will cost 1,30 € (0,65 e * 2) because 2 is not enough to reach the discount limit
 
-Also implemented and integrated into cart another kind of Discount wirth converting unit to another. 
+Also implemented and integrated into cart another kind of Discount with converting unit to another. 
 - Ex: $1.99/pound so 4 ounces costs $0.50
 - Ex: 1,99€/kg so 600g costs 1.19€ and 0,6kf gives 1.19€ two
