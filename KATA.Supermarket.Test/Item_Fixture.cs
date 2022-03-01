@@ -5,27 +5,32 @@ namespace KATA.Supermarket.Test
     [TestClass]
     public class Item_Fixture
     {
-        [TestMethod]
-        public void Items_should_have_a_name_associated_to_it()
+        private IItem canOfBeans;
+        private IItem canOfCorns;
+        private CartComposite cart;
+        public Item_Fixture()
         {
             CansFactory cansFactory = new CansFactory();
-            IItem canOfBeans = cansFactory.GetProduct("beans");
+            canOfBeans = cansFactory.GetProduct("beans");
+            canOfCorns = cansFactory.GetProduct("corns");
+            cart = new CartComposite();
+        }        
+
+        [TestMethod]
+        public void Items_should_have_a_name_associated_to_it()
+        {   
             Assert.AreEqual<string>(canOfBeans.GetName(), "can of beans");            
         }        
 
         [TestMethod]
         public void Check_Price_Can_Beans()
         {
-            CansFactory cansFactory = new CansFactory();
-            IItem canOfBeans = cansFactory.GetProduct("beans");
             Assert.AreEqual<decimal>(canOfBeans.GetPrice(), 0.65m);
         }
 
         [TestMethod]
         public void Check_Price_Can_Corns()
         {
-            CansFactory cansFactory = new CansFactory();
-            IItem canOfCorns = cansFactory.GetProduct("corns");
             Assert.AreEqual<decimal>(canOfCorns.GetPrice(), 0.85m);
         }
 
@@ -41,31 +46,39 @@ namespace KATA.Supermarket.Test
         [TestMethod]
         public void Cart_with_items_into_it_have_A_Total_Price()
         {
-            CansFactory cansFactory = new CansFactory();
-            IItem canOfBeans = cansFactory.GetProduct("beans");
-            IItem canOfCorns = cansFactory.GetProduct("corns");
-            CartComposite cart = new CartComposite();
             cart.AddItem(canOfBeans);
             cart.AddItem(canOfCorns);
             Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.5m);
         }
 
         [TestMethod]
+        public void Discount_items_with_2()
+        {
+            Discount discount = new Discount(canOfBeans, 3, 1, 2);
+            Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 1.3m);
+        }
+
+        [TestMethod]
         public void Discount_items_with_4()
         {
-            CansFactory cansFactory = new CansFactory();
-            IItem canOfBeans = cansFactory.GetProduct("beans");
-            Discount discount = new Discount(canOfBeans, 3, 1);
-            Assert.AreEqual<decimal>(discount.GetDiscountPrice(4), 1.33m);
+            Discount discount = new Discount(canOfBeans, 3, 1, 4);
+            Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 1.33m);
         }
 
         [TestMethod]
         public void Discount_items_with_5()
         {
-            CansFactory cansFactory = new CansFactory();
-            IItem canOfBeans = cansFactory.GetProduct("beans");
-            Discount discount = new Discount(canOfBeans, 3, 1);
-            Assert.AreEqual<decimal>(discount.GetDiscountPrice(5), 1.67m);
+            Discount discount = new Discount(canOfBeans, 3, 1, 5);
+            Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 1.67m);
+        }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_Items_and_Discount()
+        {
+            Discount discount = new Discount(canOfCorns, 3, 1, 4);
+            cart.AddItem(canOfBeans);
+            cart.AddDiscount(discount);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.98m);
         }
     }
 }
