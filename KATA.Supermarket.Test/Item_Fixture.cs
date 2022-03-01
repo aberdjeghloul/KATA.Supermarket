@@ -80,5 +80,29 @@ namespace KATA.Supermarket.Test
             cart.AddDiscount(discount);
             Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.98m);
         }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_ConvertPrice_Discount_1_pound_1_99_Buy_4_onces()
+        {
+            ConvertPrice convertPrice = new ConvertPrice(1, "pound", 4, "once", 1.99m);
+            cart.AddDiscount(convertPrice);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 0.50m);
+        }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_ConvertPrice_Discount_1_kg_1_99_Buy_600_g()
+        {
+            ConvertPrice convertPrice = new ConvertPrice(1, "kg", 600, "g", 1.99m);
+            cart.AddDiscount(convertPrice);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.19m);
+        }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_ConvertPrice_Discount_1_kg_1_99_Buy_06_kg()
+        {
+            ConvertPrice convertPrice = new ConvertPrice(1, "kg", 0.6m, "kg", 1.99m);
+            cart.AddDiscount(convertPrice);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.19m);
+        }
     }
 }

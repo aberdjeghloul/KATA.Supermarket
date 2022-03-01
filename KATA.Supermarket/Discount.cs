@@ -4,13 +4,12 @@ using System.Text;
 
 namespace KATA.Supermarket
 {
-    public class Discount
+    public class Discount: IDiscount
     {
         private readonly decimal itemPrice;
         private readonly int numberOfItems;
         private readonly decimal packagePrice;
         private readonly int numberOfItemsToCalculatePriceFor;
-
 
         public Discount(IItem item, int numberOfItems, decimal packagePrice, int numberOfItemsToCalculatePriceFor)
         {

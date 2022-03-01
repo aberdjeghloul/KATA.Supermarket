@@ -7,14 +7,14 @@ namespace KATA.Supermarket
     public class CartComposite : ICartComposite
     {
         List<IItem> items = new List<IItem>();
-        List<Discount> discounts = new List<Discount>();
+        List<IDiscount> discounts = new List<IDiscount>();
 
         public void AddItem(IItem item)
         {
             items.Add(item);
         }
 
-        public void AddDiscount(Discount discount)
+        public void AddDiscount(IDiscount discount)
         {            
             discounts.Add(discount);
         }
@@ -30,7 +30,7 @@ namespace KATA.Supermarket
             }
 
             //Sum of discount
-            foreach(Discount discount in discounts)
+            foreach(IDiscount discount in discounts)
             {
                 total += discount.GetDiscountPrice();
             }
