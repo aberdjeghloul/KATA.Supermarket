@@ -104,5 +104,37 @@ namespace KATA.Supermarket.Test
             cart.AddDiscount(convertPrice);
             Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.19m);
         }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_Discount_Buy_2_CansOfBeans_Get_1_Free()
+        {
+            DiscountBuyXGetYFree discountBuyXGetYFree = new DiscountBuyXGetYFree(canOfBeans, 2, 1);
+            cart.AddDiscount(discountBuyXGetYFree);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 0.65m);
+        }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_Discount_Buy_3_CansOfBeans_Get_1_Free()
+        {
+            DiscountBuyXGetYFree discountBuyXGetYFree = new DiscountBuyXGetYFree(canOfBeans, 3, 1);
+            cart.AddDiscount(discountBuyXGetYFree);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.3m);
+        }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_Discount_Buy_3_CansOfBeans_Get_3_Free()
+        {
+            DiscountBuyXGetYFree discountBuyXGetYFree = new DiscountBuyXGetYFree(canOfBeans, 3, 3);
+            cart.AddDiscount(discountBuyXGetYFree);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 0);
+        }
+
+        [TestMethod]
+        public void Cart_calculate_total_sum_with_Discount_Buy_3_CansOfBeans_Get_4_Free()
+        {
+            DiscountBuyXGetYFree discountBuyXGetYFree = new DiscountBuyXGetYFree(canOfBeans, 3, 4);
+            cart.AddDiscount(discountBuyXGetYFree);
+            Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.95m);
+        }
     }
 }
