@@ -39,4 +39,4 @@ Special Discount today 3 cans of beans for only 1 €. So if I take 4 or 5 then 
 
 Also implemented and integrated into cart another kind of Discount with converting unit to another. 
 - Ex: $1.99/pound so 4 ounces costs $0.50
-- Ex: 1,99€/kg so 600g costs 1.19€ and 0,6kf gives 1.19€ two
+- Ex: 1,99€/kg so 600g costs 1.19€ and 0,6kg gives 1.19€ two
