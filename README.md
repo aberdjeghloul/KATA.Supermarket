@@ -29,4 +29,8 @@ Ex: Cans of beans 0.65€, Cans of corns 0.85€
 Also I'm using Composite pattern because a cart is composed with multiple items
 Ex: 1 Can of beans 0.65€ + 1 Can of corns 0.85€ then my cart is 1.5€
 
-Add discount strategy. 3 for 1 € so if I take 4 or 5 then what will be the new price?
+Add discount strategy. 
+Special Discount today 3 cans of beans for only 1 €. So if I take 4 or 5 then what will be the new price? 
+Then 4 items will cost 1 € + (1/3) * 1 € => 1,33€
+Then 5 items will cost 1 € + (2/3) * 1 € => 1,67€ 
+Then 2 items will cost 1,30 € (0,65 e * 2) because 2 is not enough to reach the discount limit
