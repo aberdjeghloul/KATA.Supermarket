@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KATA.Supermarket
+﻿
+namespace KATA.Supermarket.Composite
 {
     /// <summary>
     /// Cart composite with items into from my Grocery

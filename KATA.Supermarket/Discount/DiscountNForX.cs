@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace KATA.Supermarket
+namespace KATA.Supermarket.Discount
 {
-    public class Discount: IDiscount
+    public class DiscountNForX: IDiscount
     {
         public IItem Item { get; private set; }
         private readonly int numberOfItems;
         private readonly decimal packagePrice;
         private readonly int numberOfItemsToCalculatePriceFor;
 
-        public Discount(IItem item, int numberOfItems, decimal packagePrice, int numberOfItemsToCalculatePriceFor)
+        public DiscountNForX(IItem item, int numberOfItems, decimal packagePrice, int numberOfItemsToCalculatePriceFor)
         {
             Item = item;
             this.numberOfItems = numberOfItems;

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using KATA.Supermarket.Discount;
 using System.Collections.Generic;
-using System.Text;
 
-namespace KATA.Supermarket
+namespace KATA.Supermarket.Composite
 {
     public class CartComposite : ICartComposite
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace KATA.Supermarket
+namespace KATA.Supermarket.Discount
 {
     public class ConvertPrice : IDiscount
     {

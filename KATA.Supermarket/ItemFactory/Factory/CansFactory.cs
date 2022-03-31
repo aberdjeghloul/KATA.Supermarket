@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KATA.Supermarket
+﻿
+namespace KATA.Supermarket.ItemFactory
 {
     /// <summary>
     /// Concrete class to builds cans

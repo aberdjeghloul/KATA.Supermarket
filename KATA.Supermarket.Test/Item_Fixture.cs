@@ -1,3 +1,6 @@
+using KATA.Supermarket.Discount;
+using KATA.Supermarket.Composite;
+using KATA.Supermarket.ItemFactory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KATA.Supermarket.Test
@@ -39,7 +42,7 @@ namespace KATA.Supermarket.Test
         {
             CansFactory cansFactory = new CansFactory();
             IItem canOfBeans1 = cansFactory.GetProduct("beans");
-            IItem canOfBeans2 = cansFactory.GetProduct("beans");            
+            IItem canOfBeans2 = cansFactory.GetProduct("beans");
             Assert.IsFalse(canOfBeans1.GetItemNumber() == canOfBeans2.GetItemNumber());
         }
         
@@ -54,28 +57,35 @@ namespace KATA.Supermarket.Test
         [TestMethod]
         public void Discount_items_with_2()
         {
-            Discount discount = new Discount(canOfBeans, 3, 1, 2);
+            DiscountNForX discount = new DiscountNForX(canOfBeans, 3, 1, 2);
             Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 1.3m);
         }
 
         [TestMethod]
         public void Discount_items_with_4()
         {
-            Discount discount = new Discount(canOfBeans, 3, 1, 4);
+            DiscountNForX discount = new DiscountNForX(canOfBeans, 3, 1, 4);
             Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 1.33m);
+        }
+
+        [TestMethod]
+        public void Discount_items_with_7()
+        {
+            DiscountNForX discount = new DiscountNForX(canOfBeans, 3, 1, 7);
+            Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 2.33m);
         }
 
         [TestMethod]
         public void Discount_items_with_5()
         {
-            Discount discount = new Discount(canOfBeans, 3, 1, 5);
+            DiscountNForX discount = new DiscountNForX(canOfBeans, 3, 1, 5);
             Assert.AreEqual<decimal>(discount.GetDiscountPrice(), 1.67m);
         }
 
         [TestMethod]
         public void Cart_calculate_total_sum_with_Items_and_Discount()
         {
-            Discount discount = new Discount(canOfCorns, 3, 1, 4);
+            DiscountNForX discount = new DiscountNForX(canOfCorns, 3, 1, 4);
             cart.AddItem(canOfBeans);
             cart.AddDiscount(discount);
             Assert.AreEqual<decimal>(cart.GetTotalPrice(), 1.98m);
